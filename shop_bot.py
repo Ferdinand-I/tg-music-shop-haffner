@@ -397,11 +397,6 @@ def main():
         MessageHandler(filters.SUCCESSFUL_PAYMENT, successful_payment_callback)
     )
     app.add_handler(ShippingQueryHandler(shipping))
-    app.add_handler(
-        CommandHandler(
-            'total', calculate_total, filters=filters.User(user_id=ADMINS[0])
-        )
-    )
     app.run_polling()
 
 
